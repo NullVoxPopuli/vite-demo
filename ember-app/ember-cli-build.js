@@ -2,6 +2,8 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
+const { CLASSIC, WEBPACK } = process.env;
+
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
@@ -20,5 +22,29 @@ module.exports = function (defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  return app.toTree();
+  if (CLASSIC) {
+    return app.toTree();
+  }
+
+  if (WEBPACK) {
+    const { Webpack } = require('@embroider/webpack');
+
+    return require('@embroider/compat').compatBuild(app, Webpack, {
+      extraPublicTrees: [],
+      staticAddonTestSupportTrees: true,
+      staticAddonTrees: true,
+      staticHelpers: true,
+      staticComponents: true,
+    });
+  }
+
+  const { Vite } = require('@embroider/vite');
+
+  return require('@embroider/compat').compatBuild(app, Vite, {
+    extraPublicTrees: [],
+    staticAddonTestSupportTrees: true,
+    staticAddonTrees: true,
+    staticHelpers: true,
+    staticComponents: true,
+  });
 };
