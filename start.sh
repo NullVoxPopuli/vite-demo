@@ -1,0 +1,13 @@
+#!/bin/bash
+
+git clone git@github.com:embroider-build/embroider.git
+cd embroider
+git remote add alex git@github.com:alexlafroscia/embroider.git
+git remote add nvp git@github.com:NullVoxPopuli/embroider.git
+get fetch nvp
+git fetch alex
+git checkout vite-packager
+yarn
+git checkout nvp/add-link-all-script -- ./link-all.sh
+yarn compile
+./link-all.sh ../ember-app
