@@ -31,4 +31,4 @@ To make your own Ember + Vite app
   "@embroider/vite": "*",
   ```
 4. copy the `start.sh` from this repo and place it one directory above your app
-5. run `start.sh ./my-app`
+5. run `start.sh my-app` (name of your app folder)
