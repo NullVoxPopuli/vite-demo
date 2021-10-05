@@ -4,7 +4,7 @@ git clone git@github.com:embroider-build/embroider.git
 cd embroider
 git remote add alex git@github.com:alexlafroscia/embroider.git
 git remote add nvp git@github.com:NullVoxPopuli/embroider.git
-get fetch nvp
+git fetch nvp
 git fetch alex
 git checkout vite-packager
 yarn
