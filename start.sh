@@ -1,5 +1,8 @@
 #!/bin/bash
 
+default_app="../ember-app"
+app=${1:-$default_app}
+
 rm -rf ./embroider
 
 git clone git@github.com:embroider-build/embroider.git
@@ -12,8 +15,8 @@ git checkout vite-packager
 yarn
 git checkout nvp/add-link-all-script -- ./link-all.sh
 yarn compile
-./link-all.sh ../ember-app
+./link-all.sh $app
 
 
-cd ../ember-app
+cd $app
 ember s
