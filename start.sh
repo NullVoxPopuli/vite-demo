@@ -15,8 +15,8 @@ git checkout vite-packager
 yarn
 git checkout nvp/add-link-all-script -- ./link-all.sh
 yarn compile
-./link-all.sh $app
+./link-all.sh ../$app
 
 
-cd $app
+cd ../$app
 ember s
