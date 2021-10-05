@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm -rf ./embroider
+
 git clone git@github.com:embroider-build/embroider.git
 cd embroider
 git remote add alex git@github.com:alexlafroscia/embroider.git
@@ -11,3 +13,7 @@ yarn
 git checkout nvp/add-link-all-script -- ./link-all.sh
 yarn compile
 ./link-all.sh ../ember-app
+
+
+cd ../ember-app
+ember s
