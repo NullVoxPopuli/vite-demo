@@ -1,6 +1,6 @@
 #!/bin/bash
 
-default_app="../ember-app"
+default_app="ember-app"
 app=${1:-$default_app}
 
 rm -rf ./embroider
